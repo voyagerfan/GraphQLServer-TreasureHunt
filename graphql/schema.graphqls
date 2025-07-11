@@ -1,0 +1,10 @@
+#schema.graphqls
+
+type Greeting {
+    title: String
+    subtitle: String
+}
+
+type Query {
+    greetings: [Greeting!]!
+}
