@@ -5,6 +5,32 @@ type Greeting {
     subtitle: String
 }
 
+type Coordinate {
+    latitude: Double!
+    longitude: Double!
+}
+
+type QuestImage {
+    imageUrl: String
+    bitmap: Bitmap
+}
+
+type CompletedQuestion {
+    questionDetail: String!
+    questPicture: QuestImage!
+}
+
+type QuestItem {
+    title: String!
+    description: String!
+    clue: String!
+    hint: String!
+    coordinates: Coordinate!
+    rating: Double!
+    endGameAssets: CompletedQuestion!
+}
+
 type Query {
     greetings: [Greeting!]!
+    quests: [QuestItem!]!
 }
