@@ -2,6 +2,7 @@ import { ApolloServer } from "@apollo/server";
 import { ApolloServerPlugin } from '@apollo/server';
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { readFileSync } from 'fs';
+import { resolvers } from "./resolvers/index.js";
 
 
 const typeDefs = readFileSync("graphql/schema.graphqls", 'utf-8');
@@ -15,23 +16,6 @@ const loggingPlugin: ApolloServerPlugin = {
         };
     },
 };
-
-const greetings = [
-    {
-        title: "Hello",
-        subtitle: "World!",
-    },
-    {
-        title: "Salutations",
-        subtitle: "Everyone!",
-    },
-];
-
-const resolvers = {
-    Query: {
-        greetings: () => greetings,
-    }
-}
 
 const server = new ApolloServer({
     typeDefs,
