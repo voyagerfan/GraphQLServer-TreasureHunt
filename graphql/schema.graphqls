@@ -1,5 +1,7 @@
 #schema.graphqls
 
+scalar Double
+
 type Greeting {
     title: String
     subtitle: String
@@ -10,14 +12,8 @@ type Coordinate {
     longitude: Double!
 }
 
-type QuestImage {
-    imageUrl: String
-    bitmap: Bitmap
-}
-
 type CompletedQuestion {
     questionDetail: String!
-    questPicture: QuestImage!
 }
 
 type QuestItem {
