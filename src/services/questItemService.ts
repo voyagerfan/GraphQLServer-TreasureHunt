@@ -1,7 +1,5 @@
-
-import { doubleScalar } from "./scalars/doubleScalar";
 import { questItems } from "../datasources/questItemData.js";
-import { Haversine } from '../utils/haversine';
+import { Haversine } from '../utils/haversine.js';
 
 
 export type Coordinate = {
@@ -29,4 +27,3 @@ export function getQuestsByDistanceAndRating(
 
         return filteredQuestList;
     }
-}

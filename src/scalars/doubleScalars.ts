@@ -5,8 +5,8 @@ Registers a custom Double scalar to support geospatial precision (e.g., coordina
 import { GraphQLScalarType, Kind } from 'graphql';
 
 export const doubleScalar = New GraphQLScalarType({
-   name: 'Double'
-   description: 'Double-precision floating-point number'
+   name: 'Double',
+   description: 'Double-precision floating-point number',
    serialize(value: any) {
        return value;
    },
