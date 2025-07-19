@@ -19,7 +19,10 @@ const server = new server_1.ApolloServer({
     resolvers: index_js_1.resolvers,
     plugins: [loggingPlugin]
 });
-const { url } = await (0, standalone_1.startStandaloneServer)(server, {
-    listen: { port: 4000, host: "127.0.0.1" },
-});
-console.log(`🚀 Server ready at ${url}`);
+async function main() {
+    const { url } = await (0, standalone_1.startStandaloneServer)(server, {
+        listen: { port: 4000, host: "127.0.0.1" },
+    });
+    console.log(`🚀 Server ready at ${url}`);
+}
+main();

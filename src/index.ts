@@ -22,9 +22,11 @@ const server = new ApolloServer({
     resolvers,
     plugins: [loggingPlugin]
 });
+async function main() {
+    const { url } = await startStandaloneServer(server, {
+        listen: {port: 4000, host: "127.0.0.1"},
+    });
 
-const { url } = await startStandaloneServer(server, {
-    listen: {port: 4000, host: "127.0.0.1"},
-});
-
-console.log(`🚀 Server ready at ${url}`);
+    console.log(`🚀 Server ready at ${url}`);
+}
+main();
