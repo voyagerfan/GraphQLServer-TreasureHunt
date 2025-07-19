@@ -1,6 +1,6 @@
 import { Coordinate } from "../types/dataTypes.js"
 
-const earthRadius = 6371000
+const earthRadius = 6371;
 
 export function Haversine(
     origin: Coordinate,

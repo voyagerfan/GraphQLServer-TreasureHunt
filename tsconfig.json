@@ -4,8 +4,8 @@
     "outDir": "dist",
     "lib": ["es2020"],
     "target": "es2020",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "commonjs",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "types": ["node"]
   }
