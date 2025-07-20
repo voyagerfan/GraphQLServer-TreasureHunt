@@ -12,8 +12,9 @@ type Coordinate {
     longitude: Double!
 }
 
-type CompletedQuestion {
-    questionDetail: String!
+type CompletedQuest {
+    endGameDetail: String!
+    endGameImageID: String!
 }
 
 type QuestItem {
@@ -22,11 +23,20 @@ type QuestItem {
     clue: String!
     hint: String!
     coordinates: Coordinate!
-    rating: Double!
-    endGameAssets: CompletedQuestion!
+    rating: Double!,
+    endGameAssets: CompletedQuest!
+}
+
+input CoordinateInput {
+    latitude: Double!
+    longitude: Double!
 }
 
 type Query {
     greetings: [Greeting!]!
-    questItems: [QuestItem!]!
+    questItems(
+        rating: Double
+        radius: Double
+        originCoordinates: CoordinateInput
+    ): [QuestItem!]!
 }

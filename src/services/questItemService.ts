@@ -20,7 +20,7 @@ export function getQuestsByDistanceAndRating(
 
             if (radius !== undefined && origin) {
                 filteredQuestList = filteredQuestList.filter(item => {
-                const distance = Haversine(item.coordinate, origin);
+                const distance = Haversine(item.coordinates, origin);
                 return distance <= radius;
                 });
             }
