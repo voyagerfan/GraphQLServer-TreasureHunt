@@ -28,5 +28,5 @@ type QuestItem {
 
 type Query {
     greetings: [Greeting!]!
-    quests: [QuestItem!]!
+    questItems: [QuestItem!]!
 }
