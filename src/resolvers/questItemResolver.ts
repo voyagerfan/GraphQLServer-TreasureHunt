@@ -3,7 +3,7 @@ QuestItem Resolver
 */
 
 import { doubleScalar } from "../scalars/doubleScalars.js"
-import { Coordinate } from "../types/dataTypes.js";
+import { Coordinate, Range } from "../types/dataTypes.js";
 import { getQuestsByDistanceAndRating } from "../services/questItemService.js";
 
 export const questItemResolver = {
@@ -12,7 +12,7 @@ export const questItemResolver = {
         questItems: (
             _: unknown,
             args: {
-                rating?: number,
+                rating?: Range,
                 radius?: number,
                 originCoordinates: Coordinate
             }

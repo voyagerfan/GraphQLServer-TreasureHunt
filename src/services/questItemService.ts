@@ -1,21 +1,18 @@
 import { questItems } from "../datasources/questItemData.js";
 import { Haversine } from '../utils/haversine.js';
-
-
-export type Coordinate = {
-    latitude: number
-    longitude: number
-}
+import { Coordinate, Range } from '../types/dataTypes.js'
 
 export function getQuestsByDistanceAndRating(
-    rating?: number,
+    rating?: Range,
     radius?: number,
     origin?: Coordinate): typeof questItems {
 
         let filteredQuestList = questItems;
 
             if (rating !== undefined) {
-                filteredQuestList = filteredQuestList.filter(item => item.rating >= rating);
+                filteredQuestList = filteredQuestList.filter(item => {
+                return (item.rating >= rating.min && item.rating <= rating.max)
+                });
             }
 
             if (radius !== undefined && origin) {
