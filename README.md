@@ -2,11 +2,13 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [GraphQL Server File Structure](#graphql-server-file-structure)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation and Operation](#installation-and-operation)
+- [Treasure-Hunt GraphQL Server](#treasure-hunt-graphql-server)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [GraphQL Server File Structure](#graphql-server-file-structure)
+  - [Features](#features)
+  - [Technologies Used](#technologies-used)
+  - [Installation and Operation](#installation-and-operation)
 
 
 ## Overview
@@ -20,9 +22,11 @@ The following is a brief overview of the file structure
 
 [~/src/index.ts](https://github.com/voyagerfan/GraphQLServer-TreasureHunt/blob/main/src/index.ts) - The main entry point for the server.
 
-[~/src/resolvers]() - Logic to resolve ApolloClient Requests.
+[~/src/resolvers](https://github.com/voyagerfan/GraphQLServer-TreasureHunt/tree/main/src/resolvers) - Logic to resolve ApolloClient Requests.
 
-[~/src/datasources]() - Sample Data to return back to the client.
+[~/src/datasources](https://github.com/voyagerfan/GraphQLServer-TreasureHunt/tree/main/src/datasources) - Sample Data to return back to the client.
+
+[~/src/tests](https://github.com/voyagerfan/GraphQLServer-TreasureHunt/tree/main/src/tests) - Testing files for functions and resolvers.
 
 [~/graphql/schema.graphqls](https://github.com/voyagerfan/GraphQLServer-TreasureHunt/blob/main/graphql/schema.graphqls) - Schema for GraphQL
 
@@ -36,7 +40,7 @@ This server includes the following features:
 ## Technologies Used
 
 - **Programming Languages:** TypeScript, JavaScript
-- **Frameworks:** Node, Express, GraphQL
+- **Frameworks:** Node, Express, GraphQL, Jest (testing)
 
 ## Installation and Operation
 *Prerequisites:* A suitable IDE of your choice (e.g. Intellij, Eclipse, VSCode)
