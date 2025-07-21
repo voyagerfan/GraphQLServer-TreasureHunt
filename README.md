@@ -51,7 +51,7 @@ Initial Setup:
 
 Start the Server:
 * Open a terminal within the IDE. Alternatively, you may open a separate terminal and navigate to the root directory of the cloned project.
-* At the terminal prompt, enter `npm run start`
+* At the terminal prompt, enter `npm start`
 
 To Test the server from a browser:
 >[!NOTE]
