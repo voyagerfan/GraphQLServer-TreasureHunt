@@ -23,7 +23,7 @@ type QuestItem {
     clue: String!
     hint: String!
     coordinates: Coordinate!
-    rating: Double!,
+    rating: Float!,
     endGameAssets: CompletedQuest!
 }
 
@@ -33,15 +33,15 @@ input CoordinateInput {
 }
 
 input RangeInput {
-    min: Double!
-    max: Double!
+    min: Float!
+    max: Float!
 }
 
 type Query {
     greetings: [Greeting!]!
     questItems(
         rating: RangeInput
-        radius: Double
+        radius: Float
         originCoordinates: CoordinateInput
     ): [QuestItem!]!
 }

@@ -9,18 +9,22 @@ export function getQuestsByDistanceAndRating(
 
         let filteredQuestList = questItems;
 
-            if (rating !== undefined) {
-                filteredQuestList = filteredQuestList.filter(item => {
-                return (item.rating >= rating.min && item.rating <= rating.max)
-                });
-            }
+        
 
-            if (radius !== undefined && origin) {
-                filteredQuestList = filteredQuestList.filter(item => {
-                const distance = Haversine(item.coordinates, origin);
-                return distance <= radius;
-                });
-            }
+        if (rating != null) {
+            const max = Math.ceil(rating.max * 10) / 10; 
+            const min = Math.ceil(rating.min * 10) / 10; 
+            filteredQuestList = filteredQuestList.filter(item => {
+            return (item.rating >= min && item.rating <= max)
+            });
+        }
+
+        if (radius != null && origin != null) {
+            filteredQuestList = filteredQuestList.filter(item => {
+            const distance = Haversine(item.coordinates, origin);
+            return distance <= radius;
+            });
+        }
 
         return filteredQuestList;
     }

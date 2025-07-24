@@ -6,7 +6,10 @@ const fs_1 = require("fs");
 const index_js_1 = require("./resolvers/index.js");
 const typeDefs = (0, fs_1.readFileSync)("graphql/schema.graphqls", 'utf-8');
 const loggingPlugin = {
-    async requestDidStart() {
+    async requestDidStart(requestContext) {
+        console.log("📥 GraphQL Request Received:");
+        console.log("Query:", requestContext.request.query);
+        console.log("Variables:", requestContext.request.variables);
         return {
             async willSendResponse(requestContext) {
                 console.log("GraphQL Response:", requestContext.response);
@@ -17,7 +20,8 @@ const loggingPlugin = {
 const server = new server_1.ApolloServer({
     typeDefs,
     resolvers: index_js_1.resolvers,
-    plugins: [loggingPlugin]
+    plugins: [loggingPlugin],
+    csrfPrevention: false
 });
 async function main() {
     const { url } = await (0, standalone_1.startStandaloneServer)(server, {

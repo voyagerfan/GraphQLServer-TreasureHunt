@@ -8,7 +8,12 @@ import { resolvers } from "./resolvers/index.js";
 const typeDefs = readFileSync("graphql/schema.graphqls", 'utf-8');
 
 const loggingPlugin: ApolloServerPlugin = {
-    async requestDidStart() {
+    async requestDidStart(requestContext) {
+
+        console.log("📥 GraphQL Request Received:");
+        console.log("Query:", requestContext.request.query);
+        console.log("Variables:", requestContext.request.variables);
+
         return {
             async willSendResponse(requestContext) {
                 console.log("GraphQL Response:", requestContext.response)
@@ -20,7 +25,8 @@ const loggingPlugin: ApolloServerPlugin = {
 const server = new ApolloServer({
     typeDefs,
     resolvers,
-    plugins: [loggingPlugin]
+    plugins: [loggingPlugin],
+    csrfPrevention: false
 });
 async function main() {
     const { url } = await startStandaloneServer(server, {
